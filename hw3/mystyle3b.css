@@ -1,0 +1,51 @@
+﻿.center {
+	text-align: center;
+}
+body {
+	background-color: lightblue;
+	color: #660066;
+}
+ul {
+	margin-left: 25%;
+    list-style-type: square;                
+}
+ul  li {
+    padding: 2px 5px;               
+}
+#likes {
+	margin-left: 33%;
+	margin-right: 33%;
+	border-top: 7px dashed red;
+	border-bottom: 7px dashed red;
+}
+
+img {
+	max-height: 200px;
+	vertical-align: text-top;
+}
+
+#images {
+	display: inline;
+}
+
+div > img {
+	margin-left: 13%;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+div > p {
+	overflow: auto;
+}
+
+.right, .left {
+	vertical-align: text-top;
+	margin-left: 5px;
+	margin-right: 5px;
+}

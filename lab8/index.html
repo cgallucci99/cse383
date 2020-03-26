@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Lab 8 form</h1>
+                <p>Enter info about yourself</p>
+            </div>
+        </div>
+    </header>
+    <div class="container mb-5">
+        <form action="form1.php" method="POST" onsubmit="checkQuote()">
+            <!-- uid and email -->
+            <h2>Name and Email</h2>
+            <div class="form-row mb-3">
+                <div class="col-md-6 mb-2">
+                    <label class="sr-only" for="uid">User ID</label>
+                    <input placeholder="User ID" type="text" class="form-control" id="uid" name="uid" minlength="2" pattern="^[a-zA-Z0-9]+$" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="sr-only" for="email">Email</label>
+                    <input placeholder="Email" type="email" class="form-control" id="email" name="email" minlength="2" required>
+                </div>
+            </div>
+            <h2>Dates</h2>
+            <!-- Years -->
+            <div class="form-row">
+                <!-- Grad Year -->
+                <div class="col-lg-6">
+                    <fieldset class="form-group" id="gradYear">
+                        <legend class="col-form-label">Choose your graduation year: </legend><br>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad1" name="gradYear" value="2020" required>
+                            <label for="grad1">2020</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad2" name="gradYear" value="2021" required>
+                            <label for="grad2">2021</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad3" name="gradYear" value="2022" required>
+                            <label for="grad3">2022</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad4" name="gradYear" value="2023" required>
+                            <label for="grad4">2023</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad5" name="gradYear" value="2024" required>
+                            <label for="grad5">2024</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="grad6" name="gradYear" value="0" required>
+                            <label for="grad6">Other</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- Birth Year -->
+                <div class="col-lg-6">
+                    <label for="birthYear">Choose your birth year: </label>
+                    <input id="birthYear" class=" custom-range" type="range" value="1960" min="1960" max="2020" name="birthYear"
+                        oninput="yearOutput.value = birthYear.value;" required>
+                    <output id="yearOutput">1960</output>
+                </div>
+            </div>
+            <!-- Grad date -->
+            <div class="form-group row mr-1 ml-1">
+                <label class="col-md-4 col-form-label" for="gradDate">Expected graduation date: </label>
+                <input class="form-control col-md-3" type="date" name="gradDate" id="gradDate" required>
+            </div>
+            <h2>Miscellaneous Questions</h2>
+            <!-- CSE -->
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" id="cse" name="cse">
+                <label class="custom-control-label" for="cse">Are you a CSE major?</label>
+            </div>
+            <!-- Car -->
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" id="car" name="car">
+                <label class="custom-control-label" for="car">Do you own a car?</label>
+            </div>
+            <!-- Mobile Devices -->
+            <div class="form-group mt-3 row">
+                <label class="col-sm-4 col-form-label" for="mobileDevices">How many mobile devices do you own?</label>
+                <div class="col-sm-3">
+                    <input type="number" name="mobileDevices" id="mobileDevices" min="1" max="10" class="form-control" required>
+                        
+                </div>
+            </div>
+            <!-- Quote -->
+            <div class="form-group">
+                <label for="quote" class="sr-only">Enter your favorite quote...</label>
+                <textarea class="form-control" name="quote" id="quote" cols="40" rows="5"
+                    placeholder="Enter your favorite quote..." minlength="2" required></textarea>
+            </div>
+            <!-- Cite -->
+            <div class="form-group">
+                <label for="quoteCite">Cite the above quote: </label>
+                <input class="form-control" type="url" name="quoteCite" id="quoteCite" pattern="^[a-zA-Z0-9.,\-'\u0022:\/]+$" minlength="2" required>
+            </div>
+            <!-- Hidden -->
+            <div class="form-group">
+                <input type="hidden" name="cmd" id="cmd" value="submit">
+            </div>
+            <!-- Buttons -->
+            <button class="btn btn-danger" type="reset">Clear</button>
+            <button class="btn btn-light" type="sumbit">Submit</button>
+        </form>
+        <form onsubmit="checkName()" class="mt-5">
+            <input id="form2name" type="text" required>
+            <p id="errorText"></p>
+            <button class="btn btn-light" type="sumbit">Submit</button>
+        </form>
+    </div>
+    <footer class="container">
+        <p>
+            by Cam Gallucci for CSE 383
+        </p> 
+    </footer>
+    <script>
+        function checkName() {
+            var elt = document.getElementById("form2name");
+            var errorText = document.getElementById("errorText");
+            var pattern = new RegExp("^[a-zA-Z]+ [a-zA-Z]+$");
+            var passed = pattern.test(elt.value);
+            if (passed) {
+                errorText.innerHTML = "";
+                return;
+            } else {
+                errorText.innerHTML = "Please enter a valid Firstname Lastname";
+                console.log('Error');
+                event.preventDefault();
+            }
+        }
+        function checkQuote() {
+            var elt = document.getElementById("quote");
+            var pattern = new RegExp("^([a-zA-Z0-9.,\\-'\u0022]+\\s){3}[a-zA-Z0-9.,\\-'\u0022\\s]+$");
+            var passed = pattern.test(elt.value);
+            if (passed) {
+                return;
+            } else {
+                event.preventDefault();
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+  CSE 383
+  javascript1 assignment
+  part 2
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CSE 383</title>
+
+</head>
+<canvas id="canvas1" width="700px" height="400px"></canvas>
+<body>
+  <script>
+	  var can = document.getElementById("canvas1");
+	var context = can.getContext("2d");
+	var hex = "0123456789ABCDEF";
+	for (var i = 0; i < 20; i++) {
+		var x = Math.floor(Math.random()*600);
+		var y = Math.floor(Math.random()*300);
+		var h = Math.floor(Math.random()*50 + 5);
+		var w = Math.floor(Math.random()*50 + 5);
+		var color = "#";
+		for (var j = 0; j < 6; j++) {
+			var rand = Math.floor(Math.random()*15);
+			color += hex.charAt(rand);
+		}
+		context.fillStyle = color;
+		context.fillRect(x, y, w, h);
+	}
+  </script>
+</body>
+</html>
+
