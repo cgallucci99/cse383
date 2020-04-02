@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	  <head>
+		      <meta charset="utf-8">
+		          <title>Cse383 Lab 9</title>
+			      <script src="https://code.jquery.com/jquery-3.4.1.min.js"               integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="               crossorigin="anonymous"></script>
+			          <!-- Latest compiled and minified CSS -->
+				      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+				          <!-- Latest compiled JavaScript -->
+					      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+					          <script src="info.js?rev=2"></script>
+						      <style>
+
+#MainPage {
+	  width: 80%;
+		    margin: auto;
+}
+
+h1 {
+	  width: 200px;
+		    margin: auto;
+}
+h2 {
+	  text-align: center;
+		    padding-bottom: 10px;
+}
+
+.box{
+	  border: thin solid black;
+}
+
+#log {
+	  width: 500px;
+		    margin: auto;
+			      text-align: center;
+}
+.loadTable {
+	  width: 90%;
+		    margin: auto;
+}
+
+#time {
+	  width: 50%;
+		      margin: auto;
+			            text-align:center;
+}
+    </style>
+
+      </head>
+
+        <body>
+		    <div id='MainPage'>
+			          <h1>CECLNX01 information</h1>
+				        <div class="row justify-content-center">
+						        <div class="col-sm-4 box"><h2>Users #<span id="usersRun"></span></h2>
+								          <table class='table'>
+										              <thead><tr><th>User</th><th>IP</th></tr></thead>
+											                  <tbody id='users'>
+														              </tbody>
+															                </table>
+																	        </div>
+																			<div class="col-sm-4 box"><h2>Load #<span id="loadRun"></span></h2>
+																				          <table class='table loadTable'>
+
+																						              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+																							                  <tbody>
+																										                <tr><td>One Min Avg</td><td id='onemin'>&nbsp;</td></tr>
+																												              <tr><td>Five Min Avg</td><td id='fivemin'>&nbsp;</td></tr>
+																													                    <tr><td>15 Min Avg</td><td id='fifteenmin'>&nbsp;</td></tr>
+																															                  <tr><td>Num Proc Running</td><td id='numRunning'>&nbsp;</td></tr>
+																																	                <tr><td>Ttl Processes</td><td id='ttlProc'>&nbsp;</td></tr>
+																																			            </tbody>
+																																				              </table>
+
+																																					              </div>
+																																						      	<div class="col-sm-4 box"><h2>Network #<span id="networkRun"></span></h2>
+																																								          <table class='table loadTable'>
+																																										              <thead><tr><th>Direction</th><th>Bytes</th><th>Bytes/sec</th></tr></thead>
+																																											                  <tbody>
+																																														                <tr><td>TX</td><td id='txbytes'></td><td id='txavg'></td></tr>
+																																																              <tr><td>RX</td><td id='rxbytes'></td><td id='rxavg'></td></tr>
+																																																	                  </tbody>
+																																																			              </table>
+
+
+																																																				              </div>
+																																																					            </div>
+																																																						          <div id='time'></div>
+																																																							          <h2>log  #<span id="logRun"></span></h2>
+																																																								          <ul></ul>
+																																																									        <div id="log">
+																																																											      </div>
+																																																											          </div>
+
+																																																												    </body>
+</html>
+
+
+
