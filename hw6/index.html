@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>galluccs - hw6</title>
+</head>
+<body>
+    <style>
+        #cover {
+            width: 200px;
+            height: 500px;
+            position: absolute;
+            border: thick solid blue;
+            text-align: center; 
+            top: 50px;
+            right: 30px;
+        }
+
+    </style>
+    
+    <div id="form">
+        <form>
+            <input id="search" type="text">
+            <input type="submit">
+        </form>
+    </div>
+    <div id="results"></div>
+    <div id="cover" style="display: none;">
+        <h2 id="coverTitle"></h2>
+        <h3 id="noImage">no cover image</h3>
+        <img id="image" src="" alt="">
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="book.js"></script>
+</body>
+</html>
